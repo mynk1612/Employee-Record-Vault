@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Registration</title>
+  
+  <!-- CSS File Linked Here -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="form-wrapper">
+    <h2>Employee Registration</h2>
+
+    <!-- Stepper indicator -->
+    <div class="stepper" id="stepper">
+      <div class="step-item active" data-step="1">
+        <div class="step-circle">1</div>
+        <span class="step-label">Basic & Edu</span>
+      </div>
+      <div class="step-item" data-step="2">
+        <div class="step-circle">2</div>
+        <span class="step-label">Resume</span>
+      </div>
+      <div class="step-item" data-step="3">
+        <div class="step-circle">3</div>
+        <span class="step-label">Photo</span>
+      </div>
+    </div>
+
+    <form id="employeeForm">
+      <!-- STEP 1: Basic & Education Details -->
+      <div class="step-section active" id="step1">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" placeholder="e.g. XYZ " required />
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="dob">Date of Birth *</label>
+            <input type="date" id="dob" required />
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact Number *</label>
+            <input type="tel" id="contact" placeholder="10-digit number" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="xyz@example.com" required />
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="education">Highest Education *</label>
+            <select id="education" required>
+              <option value="" disabled selected>Select level</option>
+              <option value="12th">High School (12th)</option>
+              <option value="Diploma">Diploma</option>
+              <option value="Graduation">Graduation (B.Tech, B.Sc, B.Com, etc.)</option>
+              <option value="Post Graduation">Post Graduation (M.Tech, MBA, etc.)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="course">Course / Branch *</label>
+            <input type="text" id="course" placeholder="e.g. Computer Science" required />
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn-next" id="nextToStep2">Next: Resume &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Resume Upload -->
+      <div class="step-section" id="step2">
+        <div class="form-group">
+          <label>Upload Resume / CV (PDF or DOC) *</label>
+          <div class="upload-box" id="resumeBox">
+            <p>📄 Click here to choose your Resume file</p>
+            <small>Accepted formats: .pdf, .doc, .docx</small>
+            <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" class="hidden-file-input" required />
+            <div id="resumeFileName" class="file-info-text"></div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn-prev" id="backToStep1">&larr; Back</button>
+          <button type="button" class="btn-next" id="nextToStep3">Next: Photo &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Photo Upload & Final Submit -->
+      <div class="step-section" id="step3">
+        <div class="form-group">
+          <label>Passport Size Photo *</label>
+          <div class="upload-box" id="photoBox">
+            <p>📷 Click here to select your profile image</p>
+            <input type="file" id="photoFile" accept="image/*" class="hidden-file-input" required />
+            <img id="photoPreview" class="preview-img" alt="Photo Preview" />
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn-prev" id="backToStep2">&larr; Back</button>
+          <button type="submit" class="btn-submit">Submit Form</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Success Screen -->
+    <div class="success-box" id="successBox">
+      <h3>🎉 Details Submitted Successfully!</h3>
+      <p>The employee profile data and documents have been recorded.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript File Linked Here -->
+  <script src="script.js"></script>
+</body>
+</html>
